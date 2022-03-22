@@ -48,5 +48,5 @@ def main():
 
     return competition_points
 
-
-print(main())
+if __name__ == "__main__":
+    print(main())
