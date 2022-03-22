@@ -24,9 +24,13 @@ class Pupil:
 
     def show_competition_points(self):
         points_sum = 0
+        competitions_stats = []
         for competition in self.competitions:
+            competitions_stats.append(
+                {'comp_name': competition.name, 'comp_points': competition.points})
             points_sum += competition.points
-        result = {'name': self.name, 'points': points_sum}
+        result = {'name': self.name, 'total_points': points_sum,
+                  'competitions': competitions_stats}
         return result
 
 
@@ -38,7 +42,7 @@ def main():
             "insert name , surname and age please: ").split()
         new_pupil = Pupil(name, surname, age)
         new_pupil.make_competitions()
-        pupil_result = new_pupil.show_competition_points
+        pupil_result = new_pupil.show_competition_points()
         competition_points.append(pupil_result)
         button = str(input('type o if u want to end else press any button: '))
 
